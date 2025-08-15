@@ -33,31 +33,19 @@ a {
   background-color: var(--secondary-color);
   grid-column: 2 / span 1;
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  padding: 1rem 1rem;
+  grid-template: repeat(2, 1fr) / auto 35%;
+  padding: 1rem 2rem;
   box-shadow: 0px 5px 10px rgba(35, 35, 35, 0.21);
   order: 1;
-}
-
-.header .top,
-.header .bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 1vw;
-}
-
-.header .top {
-  flex-wrap: wrap-reverse;
-}
-
-.header .bottom {
-  flex-wrap: wrap;
+  gap: 1rem;
+  justify-items: stretch;
 }
 
 .content {
   background-color: var(--background-color);
   grid-area: 2 / 2 / span 1 / span 1;
+  display: grid;
+  grid-template: repeat(2, 1fr) / auto 25%;
 }
 
 .sidebar > * {
@@ -110,9 +98,10 @@ nav ul {
   align-items: center;
   justify-content: space-around;
   width: clamp(300px, 300px, 20vw);
+  justify-self: end;
 }
 
-#user1-svg {
+.user-profile img {
   width: clamp(30px, 5vw, 50px);
 }
 
@@ -128,6 +117,7 @@ nav ul {
 }
 
 .txt-w-icon-type-2 img {
+  width: 60px;
   grid-row: 1 / span 2;
   align-self: center;
   justify-self: end;
@@ -138,16 +128,47 @@ nav ul {
   align-items: center;
   justify-content: center;
   justify-items: center;
+  justify-self: end;
   gap: 0 var(--sidebar-menu-size);
-  width: 350px;
+  /* width: max-content; */
 }
 
 .actions-container button {
-  height: 2rem;
-  width: clamp(100px, 100%, 200px);
+  height: 2.1rem;
+  width: clamp(80px, 15vw, 100px);
   border-radius: 1rem;
   border: none;
   color: var(--secondary-color);
   background-color: var(--primary-color);
   margin: 5px;
+}
+
+.projects {
+  grid-row: 1 / span 2;
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template: auto auto auto / 1fr;
+    justify-items: center;
+  }
+  .content {
+    grid-template: repeat(3, auto) / 1fr;
+  }
+  .search-bar {
+    grid-row: 2 / 3;
+  }
+  .user-profile {
+    grid-row: 1 / 2;
+    justify-self: center;
+  }
+  .greet-user {
+    display: none;
+  }
+  .actions-container {
+    justify-self: stretch;
+  }
+  .actions-container button {
+    width: clamp(80px, 100%, 120px);
+  }
 }
