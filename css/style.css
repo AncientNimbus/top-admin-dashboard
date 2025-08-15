@@ -29,6 +29,7 @@ a {
 }
 
 .header {
+  font-weight: bold;
   background-color: var(--secondary-color);
   grid-column: 2 / span 1;
   display: grid;
@@ -41,17 +42,17 @@ a {
 .header .top,
 .header .bottom {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: space-around;
+  gap: 1vw;
 }
 
 .header .top {
-  gap: 2vw;
+  flex-wrap: wrap-reverse;
 }
 
 .header .bottom {
-  gap: 10vw;
+  flex-wrap: wrap;
 }
 
 .content {
@@ -111,10 +112,42 @@ nav ul {
   width: clamp(300px, 300px, 20vw);
 }
 
-.user-profile p {
-  font-weight: bold;
+#user1-svg {
+  width: clamp(30px, 5vw, 50px);
 }
 
-#user1-svg {
-  width: clamp(40px, 5vw, 60px);
+.txt-w-icon-type-2 {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 9fr;
+  gap: 0 var(--sidebar-menu-size);
+}
+
+.txt-w-icon-type-2 .subtext {
+  font-size: calc(var(--sidebar-menu-size) * 0.75);
+  align-self: flex-end;
+}
+
+.txt-w-icon-type-2 img {
+  grid-row: 1 / span 2;
+  align-self: center;
+  justify-self: end;
+}
+
+.actions-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 0 var(--sidebar-menu-size);
+  width: 350px;
+}
+
+.actions-container button {
+  height: 2rem;
+  width: clamp(100px, 100%, 200px);
+  border-radius: 1rem;
+  border: none;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  margin: 5px;
 }
